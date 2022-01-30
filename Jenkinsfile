@@ -39,7 +39,7 @@ pipeline {
                sh 'cd WebApplication/bin/Release/netcoreapp3.1/publish/'
                sh 'mkdir archive'
                sh 'zip -r filename.zip WebApplication/bin/Release/netcoreapp3.1/publish/'
-               sh  'cp filename.zip ~/work/'
+               sh  'echo pwd'
              }
         }        
     }
