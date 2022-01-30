@@ -34,10 +34,11 @@ pipeline {
                sh '''for pid in $(lsof -t -i:9090); do
                        kill -9 $pid
                done'''
+                 
+                 sh 'rm -d  archive'
                sh 'cd WebApplication/bin/Release/netcoreapp3.1/publish/'
                sh 'mkdir archive'
                  
-               zip archive: true, dir: '/publish', glob: '', zipFile: 'WebApplication.zip'
              }
         }        
     }
