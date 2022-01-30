@@ -44,7 +44,7 @@ pipeline {
         } 
         
         stage('Upload'){
-           dir('/var/lib/jenkins/workspace/Test_dev'){
+           
 
             pwd(); //Log current directory
 
@@ -56,7 +56,7 @@ pipeline {
                 s3Upload(file:'WebApplication.zip', bucket:'my-kash-bucket', path:'/var/lib/jenkins/workspace/Test_dev/WebApplication.zip')
             }
 
-        };
+        
         }
         
         
