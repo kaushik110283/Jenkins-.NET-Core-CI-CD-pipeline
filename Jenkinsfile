@@ -50,7 +50,6 @@ pipeline {
 
             withAWS(profile:'jenkins-server-s3-full-access') {
 
-                 def identity=awsIdentity();//Log AWS credentials
 
                 // Upload files from working directory 'dist' in your project workspace
                 s3Upload('WebApplication.zip', bucket:'my-kash-bucket', path:'Test_dev/WebApplication.zip')
