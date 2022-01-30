@@ -45,7 +45,7 @@ pipeline {
         
         stage('Upload'){
            
-
+            steps{
             pwd(); //Log current directory
 
             withAWS(region:'us-east-1',credentials:'AKIATACEAG4STW6XOUVQ') {
@@ -56,7 +56,7 @@ pipeline {
                 s3Upload(file:'WebApplication.zip', bucket:'my-kash-bucket', path:'/var/lib/jenkins/workspace/Test_dev/WebApplication.zip')
             }
 
-        
+            }
         }
         
         
