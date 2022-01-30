@@ -38,9 +38,27 @@ pipeline {
                sh 'rm -d  archive'
                sh 'cd WebApplication/bin/Release/netcoreapp3.1/publish/'
                sh 'mkdir archive'
-               sh 'zip -r filename.zip WebApplication/bin/Release/netcoreapp3.1/publish/'
+               sh 'zip -r WebApplication.zip WebApplication/bin/Release/netcoreapp3.1/publish/'
                sh  'pwd'
-             }
-        }        
+             }            
+        } 
+        
+        stage('Upload'){
+           dir('/var/lib/jenkins/workspace/Test_dev'){
+
+            pwd(); //Log current directory
+
+            withAWS(region:'us-east-1',credentials:'AKIATACEAG4STW6XOUVQ') {
+
+                 def identity=awsIdentity();//Log AWS credentials
+
+                // Upload files from working directory 'dist' in your project workspace
+                s3Upload(file:'WebApplication.zip', bucket:'my-kash-bucket', path:'/var/lib/jenkins/workspace/Test_dev/WebApplication.zip')
+            }
+
+        };
+        }
+        
+        
     }
 }
