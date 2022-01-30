@@ -43,7 +43,7 @@ pipeline {
                  
                 
                 // Upload files from working directory 'dist' in your project workspace
-                sh 'aws s3 cp /var/lib/jenkins/workspace/Test_dev/   s3://my-kash-bucket/  --include "*.zip"'
+                sh 'aws s3 cp /WebApplication.zip   s3://my-kash-bucket/  '
                 
                  
                  
