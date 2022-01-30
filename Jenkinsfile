@@ -35,11 +35,11 @@ pipeline {
                        kill -9 $pid
                done'''
                  
-                 sh 'rm -d  archive'
+               sh 'rm -d  archive'
                sh 'cd WebApplication/bin/Release/netcoreapp3.1/publish/'
                sh 'mkdir archive'
-               sh  'zip -r filename.zip WebApplication/bin/Release/netcoreapp3.1/publish/'
-                 
+               sh 'zip -r filename.zip WebApplication/bin/Release/netcoreapp3.1/publish/'
+               sh  'cp filename.zip ~/work/work.zip'
              }
         }        
     }
