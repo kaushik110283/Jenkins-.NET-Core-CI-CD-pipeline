@@ -48,7 +48,7 @@ pipeline {
             steps{
             pwd(); //Log current directory
 
-            withAWS(region:'us-east-1',credentials:'AKIATACEAG4STW6XOUVQ') {
+            withAWS(profile:'jenkins-server-s3-full-access') {
 
                  def identity=awsIdentity();//Log AWS credentials
 
