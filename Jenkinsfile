@@ -40,16 +40,16 @@ pipeline {
                sh 'mkdir archive'
                sh 'zip -r WebApplication.zip WebApplication/bin/Release/netcoreapp3.1/publish/'
                  
-                 
+                 sh  'pwd'
                 
                 // Upload files from working directory 'dist' in your project workspace
-                sh 'aws s3 cp  WebApplication/bin/Release/netcoreapp3.1/publish/WebApplication.zip   s3://my-kash-bucket/  '
+                //sh 'aws s3 cp  WebApplication/bin/Release/netcoreapp3.1/publish/WebApplication.zip   s3://my-kash-bucket/  '
                 
                  
                  
                  
                
-               sh  'pwd'
+               
              }            
         } 
         
