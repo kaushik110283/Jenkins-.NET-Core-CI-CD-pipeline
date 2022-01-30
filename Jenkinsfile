@@ -39,10 +39,7 @@ pipeline {
                sh 'cd WebApplication/bin/Release/netcoreapp3.1/publish/'
                sh 'mkdir archive'
                sh 'zip -r WebApplication.zip WebApplication/bin/Release/netcoreapp3.1/publish/'
-               withAWS(profile:'jenkins-server-s3-full-access') {
-                // Upload files from working directory 'dist' in your project workspace
-                aws s3 cp WebApplication.zip s3://my-kash-bucket/
-                }
+               
                sh  'pwd'
              }            
         } 
